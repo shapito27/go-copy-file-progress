@@ -1,4 +1,4 @@
-module downloader
+module github.com/shapito27/go-copy-file-progress
 
 go 1.17
 
