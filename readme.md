@@ -3,10 +3,16 @@ Show progress of downloading file
 
 How to use:
 =
+Run:
+```
+go get github.com/shapito27/go-copy-file-progress
+```
+
+Code example:
 ```
 package main
 
-import "github.com/shapito27/go-copy-file-progress/downloader"
+import downloader "github.com/shapito27/go-copy-file-progress"
 
 func main() {
 	//first file

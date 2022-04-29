@@ -113,5 +113,5 @@ func DownloadFile(url string, dest string) {
 
 // printProgress prints progress in terminal.
 func printProgress(fileName string, percent float64, total int64) {
-	fmt.Printf("\r"+fileName+"(%s)       %.0f%%", humanize.Bytes(uint64(total)), percent)
+	fmt.Printf("\r"+fileName+" (%s)       %.0f%%", humanize.Bytes(uint64(total)), percent)
 }
