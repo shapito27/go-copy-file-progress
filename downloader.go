@@ -1,8 +1,8 @@
-package main
+// Package downloader provides ability to download file with outputing its progress
+package downloader
 
 import (
 	"fmt"
-	"github.com/dustin/go-humanize"
 	"io"
 	"log"
 	"net/http"
@@ -10,16 +10,11 @@ import (
 	"path"
 	"strconv"
 	"time"
+
+	"github.com/dustin/go-humanize"
 )
 
-func main() {
-	//first file
-	DownloadFile("https://thumbs.dreamstime.com/z/die-fantacy-immage-woman-s-hand-draws-31994627.jpg", "./")
-	//second file
-	DownloadFile("https://wordpress.org/latest.tar.gz", "./")
-}
-
-//Print: file name, percent of copying file, time
+// calculateAndPrintProgress prints: file name, percent of copying file, time.
 func calculateAndPrintProgress(done chan int64, destination string, total int64) {
 	//true when downloading done
 	var stop bool = false
@@ -67,7 +62,7 @@ func calculateAndPrintProgress(done chan int64, destination string, total int64)
 	}
 }
 
-//download file from url to local file dest
+// DownloadFile downloads file from url to local file dest
 func DownloadFile(url string, dest string) {
 
 	file := path.Base(url)
@@ -116,6 +111,7 @@ func DownloadFile(url string, dest string) {
 	done <- n
 }
 
+// printProgress prints progress in terminal.
 func printProgress(fileName string, percent float64, total int64) {
 	fmt.Printf("\r"+fileName+"(%s)       %.0f%%", humanize.Bytes(uint64(total)), percent)
 }
